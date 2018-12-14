@@ -1,0 +1,15 @@
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\bin\Release\CloudlogCAT.exe.config
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\bin\Release\CloudlogCAT.exe
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\bin\Release\CloudlogCAT.pdb
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\bin\Release\CloudlogCAT.xml
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\Interop.OmniRig.dll
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.vbproj.ResolveComReference.cache
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.AboutBox1.resources
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.Form1.resources
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.CloudlogSettingsForm.resources
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.Resources.resources
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.vbproj.GenerateResource.cache
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.vbproj.CoreCompileInputs.cache
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.exe
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.xml
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.pdb

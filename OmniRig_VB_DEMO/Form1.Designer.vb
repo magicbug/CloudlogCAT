@@ -43,6 +43,8 @@ Partial Class Form1
         Me.OmnirigToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -171,7 +173,7 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SettingsToolStripMenuItem1})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SettingsToolStripMenuItem1, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(497, 24)
@@ -201,19 +203,19 @@ Partial Class Form1
         'CloudlogToolStripMenuItem
         '
         Me.CloudlogToolStripMenuItem.Name = "CloudlogToolStripMenuItem"
-        Me.CloudlogToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CloudlogToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
         Me.CloudlogToolStripMenuItem.Text = "Cloudlog"
         '
         'OmnirigToolStripMenuItem
         '
         Me.OmnirigToolStripMenuItem.Name = "OmnirigToolStripMenuItem"
-        Me.OmnirigToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OmnirigToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
         Me.OmnirigToolStripMenuItem.Text = "Omnirig"
         '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 136)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 166)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(497, 22)
         Me.StatusStrip1.TabIndex = 16
@@ -225,11 +227,27 @@ Partial Class Form1
         Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(86, 17)
         Me.ToolStripStatusLabel1.Text = "cloudlogStatus"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(337, 122)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(148, 23)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Text = "Sync Cloudlog"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(497, 158)
+        Me.ClientSize = New System.Drawing.Size(497, 188)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.NumericUpDown1)
@@ -279,4 +297,6 @@ Partial Class Form1
     Friend WithEvents OmnirigToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents Button1 As Button
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
 End Class

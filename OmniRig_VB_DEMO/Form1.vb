@@ -112,13 +112,43 @@
                 Label6.Text = "CW"
             Case PM_SSB_L
                 ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(3))
-                Label6.Text = "LSB"
+                Label6.Text = "SSB"
             Case PM_SSB_U
                 ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(2))
-                Label6.Text = "USB"
+                Label6.Text = "SSB"
+            Case PM_DIG_U
+                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(4))
+                Label6.Text = "DIGI"
+            Case PM_DIG_L
+                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(5))
+                Label6.Text = "DIGI"
+            Case PM_AM
+                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(6))
+                Label6.Text = "AM"
+            Case PM_FM
+                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(7))
+                Label6.Text = "FM"
             Case Else
                 Label6.Text = "Other"
         End Select
+
+        If My.Settings.CloudlogURL IsNot Nothing Then
+            Try
+                Using client As New Net.WebClient
+                    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
+
+                    Dim myString As String = "{""radio"": ""OminiRig"", ""frequency"": """ + Rig.GetTxFrequency.ToString + """, ""mode"": """ + Label6.Text + """}"
+
+                    Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
+
+                    ToolStripStatusLabel1.Text = "Cloudlog Synced: " + DateTime.UtcNow
+
+
+                End Using
+            Catch ex As Exception
+                ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed"
+            End Try
+        End If
     End Sub
 
     'Procedures
@@ -204,5 +234,25 @@ Error1:
 
     Private Sub CloudlogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloudlogToolStripMenuItem.Click
         CloudlogSettingsForm.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            Using client As New Net.WebClient
+                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
+
+                Dim myString As String = "{""radio"": ""OminiRig"", ""frequency"": """ + Rig.GetTxFrequency.ToString + """, ""mode"": """ + Label6.Text + """}"
+
+                Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
+
+                ToolStripStatusLabel1.Text = "Cloudlog Synced: " + DateTime.UtcNow
+            End Using
+        Catch ex As Exception
+            ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed"
+        End Try
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBox1.Show()
     End Sub
 End Class
