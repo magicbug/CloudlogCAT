@@ -4,10 +4,6 @@
     Dim Rig As OmniRig.RigX
     Dim OurRigNo As Integer
 
-    'How to: Make Thread-Safe Calls To Windows Forms Controls
-    'https://msdn.microsoft.com/ja-jp/library/a1hetckb(v=vs.110).aspx
-    'http://www.atmarkit.co.jp/ait/articles/0506/17/news111.html
-
     'Thread-Safe Calls To Windows Forms Controls
     Delegate Sub ShowRigStatusDelegate()
     Delegate Sub ShowRigParamsDelegate()
@@ -58,19 +54,7 @@
         ' Set Status Bar Information
         ToolStripStatusLabel1.Text = "Cloudlog Not Connected"
 
-        'ComboBox MODE SETING　
-        ComboBox1.Items.Add("CW_U")
-        ComboBox1.Items.Add("CW_L")
-        ComboBox1.Items.Add("SSB_U")
-        ComboBox1.Items.Add("SSB_L")
-        ComboBox1.Items.Add("DIG_U")
-        ComboBox1.Items.Add("DIG_L")
-        ComboBox1.Items.Add("AM")
-        ComboBox1.Items.Add("FM")
-        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
-        ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(0))
         RadioButton1.Checked = True
-        NumericUpDown1.ThousandsSeparator = True
         StartOmniRig()
     End Sub
 
@@ -88,7 +72,6 @@
     'OmniRig ParamsChange events
     Private Sub OmniRigEngine_ParamsChange(ByVal RigNumber As Long, ByVal Params As Long) Handles OmniRigEngine.ParamsChange
         If RigNumber = OurRigNo Then Invoke(New ShowRigParamsDelegate(AddressOf ShowRigParams))
-
     End Sub
 
     'Thread-Safe Calls To Windows Forms Controls
@@ -100,33 +83,23 @@
     'Thread-Safe Calls To Windows Forms Controls
     Private Sub ShowRigParams()
         If Rig Is Nothing Then Exit Sub
-        Label3.Text = Rig.GetRxFrequency
-        Label4.Text = Rig.GetTxFrequency
-        NumericUpDown1.Value = Rig.Freq
+        Label3.Text = Rig.Freq 'Rig.GetRxFrequency
         Select Case Rig.Mode
             Case PM_CW_L
-                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(1))
                 Label6.Text = "CW"
             Case PM_CW_U
-                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(0))
                 Label6.Text = "CW"
             Case PM_SSB_L
-                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(3))
                 Label6.Text = "SSB"
             Case PM_SSB_U
-                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(2))
                 Label6.Text = "SSB"
             Case PM_DIG_U
-                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(4))
                 Label6.Text = "DIGI"
             Case PM_DIG_L
-                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(5))
                 Label6.Text = "DIGI"
             Case PM_AM
-                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(6))
                 Label6.Text = "AM"
             Case PM_FM
-                ComboBox1.Text = ComboBox1.GetItemText(ComboBox1.Items(7))
                 Label6.Text = "FM"
             Case Else
                 Label6.Text = "Other"
@@ -137,7 +110,15 @@
                 Using client As New Net.WebClient
                     System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
 
-                    Dim myString As String = "{""radio"": ""OminiRig"", ""frequency"": """ + Rig.GetTxFrequency.ToString + """, ""mode"": """ + Label6.Text + """}"
+                    Dim RadioName As String = ""
+
+                    If RadioButton1.Checked Then
+                        RadioName = "OmniRig 1"
+                    Else
+                        RadioName = "OmniRig 2"
+                    End If
+
+                    Dim myString As String = "{""radio"": """ + RadioName + """, ""frequency"": """ + Rig.GetRxFrequency.ToString + """, ""mode"": """ + Label6.Text + """}"
 
                     Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
 
@@ -195,33 +176,11 @@ Error1:
         SelectRig(2)
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         Dim freq As Integer
-        freq = Int(NumericUpDown1.Value / 1000) * 1000
         Rig.SetSimplexMode(freq)
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        If OmniRigEngine Is Nothing Then Exit Sub
-        Select Case ComboBox1.SelectedItem
-            Case "CW_L"
-                Rig.Mode = OmniRig.RigParamX.PM_CW_L
-            Case "CW_U"
-                Rig.Mode = OmniRig.RigParamX.PM_CW_U
-            Case "SSB_L"
-                Rig.Mode = OmniRig.RigParamX.PM_SSB_L
-            Case "SSB_U"
-                Rig.Mode = OmniRig.RigParamX.PM_SSB_U
-            Case "DIG_L"
-                Rig.Mode = OmniRig.RigParamX.PM_DIG_L
-            Case "DIG_U"
-                Rig.Mode = OmniRig.RigParamX.PM_DIG_U
-            Case "AM"
-                Rig.Mode = OmniRig.RigParamX.PM_AM
-            Case "FM"
-                Rig.Mode = OmniRig.RigParamX.PM_FM
-        End Select
-    End Sub
 
     Private Sub OmnirigToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OmnirigToolStripMenuItem.Click
         If OmniRigEngine Is Nothing Then Exit Sub
@@ -234,22 +193,6 @@ Error1:
 
     Private Sub CloudlogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloudlogToolStripMenuItem.Click
         CloudlogSettingsForm.Show()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Try
-            Using client As New Net.WebClient
-                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
-
-                Dim myString As String = "{""radio"": ""OminiRig"", ""frequency"": """ + Rig.GetTxFrequency.ToString + """, ""mode"": """ + Label6.Text + """}"
-
-                Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
-
-                ToolStripStatusLabel1.Text = "Cloudlog Synced: " + DateTime.UtcNow
-            End Using
-        Catch ex As Exception
-            ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed"
-        End Try
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
