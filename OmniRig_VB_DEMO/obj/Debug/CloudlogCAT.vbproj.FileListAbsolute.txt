@@ -14,3 +14,8 @@ C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\Cloud
 C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\CloudlogCAT.xml
 C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\CloudlogCAT.pdb
 C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\CloudlogCAT.AboutBox1.resources
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\bin\Debug\CloudlogCAT.exe.manifest
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\bin\Debug\CloudlogCAT.application
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\CloudlogCAT.TrustInfo.xml
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\CloudlogCAT.exe.manifest
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\CloudlogCAT.application
