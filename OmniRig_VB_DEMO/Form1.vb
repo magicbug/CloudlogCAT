@@ -118,15 +118,14 @@
                         RadioName = "OmniRig 2"
                     End If
 
-                    Dim myString As String = "{""radio"": """ + RadioName + """, ""frequency"": """ + Rig.GetRxFrequency.ToString + """, ""mode"": """ + Label6.Text + """}"
+                    Dim myString As String = "{""radio"": """ + RadioName + """, ""frequency"": """ + Rig.GetRxFrequency.ToString + """, ""mode"": """ + Label6.Text + """, ""key"": """ + My.Settings.CloudlogAPIKey + """}"
 
                     Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
 
                     ToolStripStatusLabel1.Text = "Cloudlog Synced: " + DateTime.UtcNow
 
-
                 End Using
-            Catch ex As Exception
+            Catch ex As System.Net.WebException
                 ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed"
             End Try
         End If
