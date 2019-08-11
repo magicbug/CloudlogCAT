@@ -120,9 +120,13 @@
 
                     Dim myString As String = "{""radio"": """ + RadioName + """, ""frequency"": """ + Rig.GetRxFrequency.ToString + """, ""mode"": """ + Label6.Text + """, ""key"": """ + My.Settings.CloudlogAPIKey + """}"
 
-                    Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
+                    Try
+                        Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
+                        ToolStripStatusLabel1.Text = "Cloudlog Synced: " + DateTime.UtcNow
+                    Catch ex As Exception
+                        ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed, check URL/API"
+                    End Try
 
-                    ToolStripStatusLabel1.Text = "Cloudlog Synced: " + DateTime.UtcNow
 
                 End Using
             Catch ex As System.Net.WebException
