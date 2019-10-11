@@ -40,3 +40,4 @@ C:\Users\peter\OneDrive\Documents\GitHub\CloudlogCAT\OmniRig_VB_DEMO\bin\Debug\C
 C:\Users\peter\OneDrive\Documents\GitHub\CloudlogCAT\OmniRig_VB_DEMO\bin\Debug\CloudlogCAT.xml
 C:\Users\peter\OneDrive\Documents\GitHub\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\CloudlogCAT.exe.manifest
 C:\Users\peter\OneDrive\Documents\GitHub\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\CloudlogCAT.application
+C:\Users\peter\OneDrive\Documents\GitHub\CloudlogCAT\OmniRig_VB_DEMO\obj\Debug\CloudlogCAT.Form3.resources

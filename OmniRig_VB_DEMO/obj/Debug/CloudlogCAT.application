@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xrml="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <assemblyIdentity name="CloudlogCAT.application" version="1.0.0.2" publicKeyToken="0000000000000000" language="en-GB" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <assemblyIdentity name="CloudlogCAT.application" version="1.3.0.3" publicKeyToken="0000000000000000" language="en-GB" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <description asmv2:publisher="Magicbug" co.v1:suiteName="Cloudlog" asmv2:product="CloudlogCAT" asmv2:supportUrl="http://www.magicbug.co.uk/" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
@@ -8,13 +8,13 @@
   </compatibleFrameworks>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="CloudlogCAT.exe.manifest" size="5068">
-      <assemblyIdentity name="CloudlogCAT.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="en-GB" processorArchitecture="msil" type="win32" />
+      <assemblyIdentity name="CloudlogCAT.exe" version="1.3.0.3" publicKeyToken="0000000000000000" language="en-GB" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WSaVrH5nBG8lISa6GGOvfl3kdPUqe3+JSJnmtUf9jlA=</dsig:DigestValue>
+        <dsig:DigestValue>lJZaO8tSPCCvJvWpfK2iargf1grFLkGJE4oCWnwbRAg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

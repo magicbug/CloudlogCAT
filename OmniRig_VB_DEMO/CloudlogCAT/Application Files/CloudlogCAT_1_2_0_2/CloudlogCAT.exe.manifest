@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="CloudlogCAT.exe" version="1.2.0.2" publicKeyToken="657259e953a6e57e" language="en-GB" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="black_cat.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="CloudlogCAT" version="1.2.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="CloudlogCAT.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+             If you want to change the Windows User Account Control level replace the 
+             requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel element will disable file and registry virtualization. 
+            Remove this element if your application requires this virtualization for backwards
+            compatibility.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CloudlogCAT.exe" size="468960">
+      <assemblyIdentity name="CloudlogCAT" version="1.2.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>04xMiWCP0JL76wrCoQpvG/8PoZm6t08U/0nHKYtpptY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="black_cat.ico" size="386990">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>t+YkUar7BQkecv0WXeIzZ08zzmX/bITAX+l62kmzD80=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CloudlogCAT.exe.config" size="1394">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>eTRHKvV5zlSCHHY1RoJU54eCZFKw7YfqVuIxMoaMU/o=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of the Windows versions that this application has been tested on
+           and is designed to work with. Uncomment the appropriate elements
+           and Windows will automatically select the most compatible environment. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=DESKTOP-SC687VB\peter" issuerKeyHash="7f4210d9437bcaf34210d581e093dad439707d98" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>PrbsnN1UgY+mDHnwSyxocT92bkt+suxGxVue+FIjBRE=</DigestValue></Reference></SignedInfo><SignatureValue>kYVsNuf31DwPe63FEV+hiKkdGm7IEnkDCE311LnFYre2GYj9wQEk4DYzTSPb3ILDCRdZAfm7gUT+OfYiF0tXykhz3/I+Dpp0sosgU45kyB2f1h5u0Sx1fkahfFH/R7m632dlPtqqiIe8uTsLbnmbecXEqS/CsG7r4qoI6uMEGSc=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>4NZmFTIjKvcyDEGARXPebj3odHCVSEeEAsWcT1PaAsaJg31r2aYJrcPbObTnFrljzXkw9f+KTNg+c0LsJPXyprp7DXCYZ/L9Og+WW3ShGS6wsTXiRUYF7XwNsm+sRWSmQ55yWBfVaGs+mP7xIP6IYscunZ1nmCgGdguhqqQWqV0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="11052352f89e5bc546ecb27e4b6e763f71682c4bf0790ca68f8154dd9cecb63e" Description="" Url=""><as:assemblyIdentity name="CloudlogCAT.exe" version="1.2.0.2" publicKeyToken="657259e953a6e57e" language="en-GB" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-SC687VB\peter</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>yGGPIoUyGZF4b7yuykhPLdGV4BanAnsmGOcU9rJxxrE=</DigestValue></Reference></SignedInfo><SignatureValue>jSXeopPocOemoM0EH2vPm63CX7WThoBLthIGO7ZF5TFsFX62C6EwD4yDNB4UGTew4n7d/3125xgIY8G7x3/3erK1TTiVMnBIYnovmHn6Adm07BsUB6SMCO/5dkUhucFTHFvWoBFrbzZqSYo863+d5xUsgnWwyUpGeceWOv2BTR0=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>4NZmFTIjKvcyDEGARXPebj3odHCVSEeEAsWcT1PaAsaJg31r2aYJrcPbObTnFrljzXkw9f+KTNg+c0LsJPXyprp7DXCYZ/L9Og+WW3ShGS6wsTXiRUYF7XwNsm+sRWSmQ55yWBfVaGs+mP7xIP6IYscunZ1nmCgGdguhqqQWqV0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQRmHT0jewkp9CN0mIQ1jAAjANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFMAQwA2ADgANwBWAEIAXABwAGUAdABlAHIwHhcNMTgxMjE1MjI0NTM3WhcNMTkxMjE2MDQ0NTM3WjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFMAQwA2ADgANwBWAEIAXABwAGUAdABlAHIwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAODWZhUyIyr3MgxBgEVz3m496HRwlUhHhALFnE9T2gLGiYN9a9mmCa3D2zm05xa5Y815MPX/ikzYPnNC7CT18qa6ew1wmGfy/ToPllt0oRkusLE14kVGBe18DbJvrEVkpkOeclgX1WhrPpj+8SD+iGLHLp2dZ5goBnYLoaqkFqldAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAQLF/8bdfSe9mvyZnmq5cGiBeRBa0NSvHQxAA7PhE8E8FCyK0880HOkhjCNVh8hmxyEHqiht5EXaFis4T79obN9iQhAzpNy5CQ0krbM0hL7VeQJAjZVJ9NDituLSHddkV06NSwV23Y2yneIf8bICU+htF3I9MUd8LlEyDeYmZyJM=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
