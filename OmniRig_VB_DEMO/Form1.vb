@@ -56,9 +56,7 @@
 
         RadioButton1.Checked = True
 
-        If (My.Settings.TransverterEnabled = True) Then
-            TransverterOffsetToolStripMenuItem.Checked = True
-        End If
+        TransverterOffsetToolStripMenuItem.Checked = My.Settings.TransverterEnabled
 
         StartOmniRig()
     End Sub
@@ -135,17 +133,13 @@
 
                     Dim RadioName As String = ""
 
-                    If RadioButton1.Checked Then
-                        RadioName = "OmniRig 1"
-                    Else
-                        RadioName = "OmniRig 2"
-                    End If
+                    RadioName = Rig.RigType
 
                     Dim myString As String = "{""radio"": """ + RadioName + """, ""frequency"": """ + newfreq.ToString + """, ""mode"": """ + Label6.Text + """, ""key"": """ + My.Settings.CloudlogAPIKey + """}"
 
                     Try
-                        Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
-                        ToolStripStatusLabel1.Text = "Cloudlog Synced: " + DateTime.UtcNow
+                        Dim responsebytes = client.UploadString(New Uri(New Uri(My.Settings.CloudlogURL), "index.php/api/radio").ToString(), myString)
+                        ToolStripStatusLabel1.Text = "Cloudlog Synced: " + Date.UtcNow
                     Catch ex As Exception
                         ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed, check URL/API"
                     End Try
@@ -163,15 +157,13 @@
         OmniRigEngine = CreateObject("OmniRig.OmniRigX")
         ' we want OmniRig interface V.1.1 to 1.99
         ' as V2.0 will likely be incompatible  with 1.x
-        If OmniRigEngine.InterfaceVersion < &H101 Then GoTo Error1
-        If OmniRigEngine.InterfaceVersion > &H299 Then GoTo Error1
+        If OmniRigEngine.InterfaceVersion < &H101 Or OmniRigEngine.InterfaceVersion > &H299 Then
+            ' report problems
+            OmniRigEngine = Nothing
+            MsgBox("OmniRig Is Not installed Or has a wrong version number")
+            Exit Sub
+        End If
         SelectRig(1)
-        Exit Sub
-Error1:
-        ' report problems
-        OmniRigEngine = Nothing
-        MsgBox("OmniRig Is Not installed Or has a wrong version number")
-
     End Sub
 
     Private Sub StopOmniRig()
