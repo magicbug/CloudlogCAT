@@ -27,6 +27,10 @@ Partial Class CloudlogSettingsForm
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -47,7 +51,7 @@ Partial Class CloudlogSettingsForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(253, 72)
+        Me.Button1.Location = New System.Drawing.Point(151, 72)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(104, 23)
         Me.Button1.TabIndex = 2
@@ -70,11 +74,36 @@ Partial Class CloudlogSettingsForm
         Me.TextBox2.Size = New System.Drawing.Size(206, 20)
         Me.TextBox2.TabIndex = 4
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(261, 72)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(96, 23)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "Cancel"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 100)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(381, 22)
+        Me.StatusStrip1.TabIndex = 6
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(0, 17)
+        '
         'CloudlogSettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(381, 102)
+        Me.ClientSize = New System.Drawing.Size(381, 122)
+        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button1)
@@ -85,6 +114,8 @@ Partial Class CloudlogSettingsForm
         Me.Name = "CloudlogSettingsForm"
         Me.ShowIcon = False
         Me.Text = "Cloudlog Settings"
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -95,4 +126,7 @@ Partial Class CloudlogSettingsForm
     Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
 End Class
