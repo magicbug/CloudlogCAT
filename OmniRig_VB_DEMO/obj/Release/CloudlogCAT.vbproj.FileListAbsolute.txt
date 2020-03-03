@@ -14,3 +14,8 @@ C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\Clo
 C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.xml
 C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.pdb
 C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.vbprojAssemblyReference.cache
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.TrustInfo.xml
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\bin\Release\CloudlogCAT.exe.manifest
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\bin\Release\CloudlogCAT.application
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.exe.manifest
+C:\Users\peter\Documents\development\CloudlogCAT\OmniRig_VB_DEMO\obj\Release\CloudlogCAT.application

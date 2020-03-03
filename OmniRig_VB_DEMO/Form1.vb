@@ -83,7 +83,7 @@
     'Thread-Safe Calls To Windows Forms Controls
     Private Sub ShowRigParams()
         If Rig Is Nothing Then Exit Sub
-        Label3.Text = Rig.Freq 'Rig.GetRxFrequency
+        Label3.Text = Rig.GetRxFrequency 'Rig.GetRxFrequency
         Select Case Rig.Mode
             Case PM_CW_L
                 Label6.Text = "CW"

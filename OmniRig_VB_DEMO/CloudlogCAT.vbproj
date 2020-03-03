@@ -29,7 +29,7 @@
     <ProductName>CloudlogCAT</ProductName>
     <PublisherName>Magicbug</PublisherName>
     <SuiteName>Cloudlog</SuiteName>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -75,10 +75,11 @@
     <ApplicationIcon>black_cat.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>39C66B6CC87C3D8959F00405E07E250AC2630677</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>89EADE7A3F0021FAC45F5A7248DD748F698495F1</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>CloudlogCAT_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
