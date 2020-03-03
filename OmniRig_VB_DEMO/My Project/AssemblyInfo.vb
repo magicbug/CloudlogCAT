@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("CAT Interface for Cloudlog")>
 <Assembly: AssemblyCompany("Magicbug")>
 <Assembly: AssemblyProduct("CloudlogCAT")>
-<Assembly: AssemblyCopyright("Copyright ©  2018 Magicbug")>
+<Assembly: AssemblyCopyright("Copyright ©  2019 Magicbug")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 既定値にすることができます:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.3.0.0")>
+<Assembly: AssemblyFileVersion("1.3.0.0")>

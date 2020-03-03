@@ -39,6 +39,7 @@ Partial Class Form1
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TransverterOffsetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -138,12 +139,12 @@ Partial Class Form1
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(92, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(93, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'SettingsToolStripMenuItem1
         '
-        Me.SettingsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CloudlogToolStripMenuItem, Me.OmnirigToolStripMenuItem})
+        Me.SettingsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CloudlogToolStripMenuItem, Me.OmnirigToolStripMenuItem, Me.TransverterOffsetToolStripMenuItem})
         Me.SettingsToolStripMenuItem1.Name = "SettingsToolStripMenuItem1"
         Me.SettingsToolStripMenuItem1.Size = New System.Drawing.Size(61, 20)
         Me.SettingsToolStripMenuItem1.Text = "Settings"
@@ -151,13 +152,13 @@ Partial Class Form1
         'CloudlogToolStripMenuItem
         '
         Me.CloudlogToolStripMenuItem.Name = "CloudlogToolStripMenuItem"
-        Me.CloudlogToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.CloudlogToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CloudlogToolStripMenuItem.Text = "Cloudlog"
         '
         'OmnirigToolStripMenuItem
         '
         Me.OmnirigToolStripMenuItem.Name = "OmnirigToolStripMenuItem"
-        Me.OmnirigToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.OmnirigToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OmnirigToolStripMenuItem.Text = "Omnirig"
         '
         'AboutToolStripMenuItem
@@ -180,6 +181,12 @@ Partial Class Form1
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
         Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(86, 17)
         Me.ToolStripStatusLabel1.Text = "cloudlogStatus"
+        '
+        'TransverterOffsetToolStripMenuItem
+        '
+        Me.TransverterOffsetToolStripMenuItem.Name = "TransverterOffsetToolStripMenuItem"
+        Me.TransverterOffsetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TransverterOffsetToolStripMenuItem.Text = "Transverter Offset"
         '
         'Form1
         '
@@ -225,4 +232,5 @@ Partial Class Form1
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TransverterOffsetToolStripMenuItem As ToolStripMenuItem
 End Class

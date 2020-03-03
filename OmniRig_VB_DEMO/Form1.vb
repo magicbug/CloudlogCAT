@@ -55,6 +55,11 @@
         ToolStripStatusLabel1.Text = "Cloudlog Not Connected"
 
         RadioButton1.Checked = True
+
+        If (My.Settings.TransverterEnabled = True) Then
+            TransverterOffsetToolStripMenuItem.Checked = True
+        End If
+
         StartOmniRig()
     End Sub
 
@@ -82,8 +87,26 @@
 
     'Thread-Safe Calls To Windows Forms Controls
     Private Sub ShowRigParams()
+
+
         If Rig Is Nothing Then Exit Sub
-        Label3.Text = Rig.GetRxFrequency 'Rig.GetRxFrequency
+
+        Dim newfreq As String
+
+        If (My.Settings.TransverterEnabled = True) Then
+            If (My.Settings.TransverterOffsetType = "Plus") Then
+                newfreq = Rig.Freq + My.Settings.TransverterFreq
+            Else
+                newfreq = Rig.Freq - My.Settings.TransverterFreq
+            End If
+
+            Label3.Text = newfreq
+        Else
+            newfreq = Rig.Freq
+            Label3.Text = Rig.Freq 'Rig.GetRxFrequency
+        End If
+
+>>>>>>> e221a03032e5c6a6f33ade8747dc3b7de93a3a4e
         Select Case Rig.Mode
             Case PM_CW_L
                 Label6.Text = "CW"
@@ -105,6 +128,7 @@
                 Label6.Text = "Other"
         End Select
 
+        'Connect to Cloudlog API and sync frequency
         If My.Settings.CloudlogURL IsNot Nothing Then
             Try
                 Using client As New Net.WebClient
@@ -118,12 +142,14 @@
                         RadioName = "OmniRig 2"
                     End If
 
-                    Dim myString As String = "{""radio"": """ + RadioName + """, ""frequency"": """ + Rig.GetRxFrequency.ToString + """, ""mode"": """ + Label6.Text + """, ""key"": """ + My.Settings.CloudlogAPIKey + """}"
+                    Dim myString As String = "{""radio"": """ + RadioName + """, ""frequency"": """ + newfreq.ToString + """, ""mode"": """ + Label6.Text + """, ""key"": """ + My.Settings.CloudlogAPIKey + """}"
 
-                    Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
-
-                    ToolStripStatusLabel1.Text = "Cloudlog Synced: " + DateTime.UtcNow
-
+                    Try
+                        Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
+                        ToolStripStatusLabel1.Text = "Cloudlog Synced: " + DateTime.UtcNow
+                    Catch ex As Exception
+                        ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed, check URL/API"
+                    End Try
                 End Using
             Catch ex As System.Net.WebException
                 ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed"
@@ -196,5 +222,9 @@ Error1:
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         AboutBox1.Show()
+    End Sub
+
+    Private Sub TransverterOffsetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TransverterOffsetToolStripMenuItem.Click
+        Form3.Show()
     End Sub
 End Class

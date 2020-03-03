@@ -20,7 +20,7 @@
                 <value>False</value>
             </setting>
             <setting name="TransverterFreq" serializeAs="String">
-                <value>0</value>
+                <value />
             </setting>
             <setting name="TransverterOffsetType" serializeAs="String">
                 <value />
