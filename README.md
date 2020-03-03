@@ -17,7 +17,7 @@ The other big selling point will be that this version will support unlimited rad
   * [ ] Yaesu
   * [ ] SunSDR TCL
   * [ ] Flex Radio
-  * [ ] Add OmniRig Support just as an extra
+* - [ ] Add OmniRig Support just as an extra
 * - [ ] SatPC32 DDE Interface (Removing the need for a second application)
 * Other Hardware
   * [ ] Winkey
