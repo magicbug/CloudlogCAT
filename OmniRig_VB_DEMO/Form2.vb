@@ -10,7 +10,7 @@
         Try
             Dim url = New Uri(TextBox1.Text)
             If Not url.Scheme.ToUpper.StartsWith("HTTP") Then
-                Throw New UriFormatException("Need 'http://' or 'http://'")
+                Throw New UriFormatException("Need 'https://' or 'http://'")
             End If
             My.Settings.CloudlogURL = url.ToString()
         Catch ex As UriFormatException
