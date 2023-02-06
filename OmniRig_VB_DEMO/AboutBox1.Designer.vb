@@ -26,12 +26,12 @@ Partial Class AboutBox1
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AboutBox1))
         Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.OKButton = New System.Windows.Forms.Button()
-        Me.LabelCompanyName = New System.Windows.Forms.Label()
-        Me.LabelCopyright = New System.Windows.Forms.Label()
-        Me.LabelVersion = New System.Windows.Forms.Label()
         Me.LabelProductName = New System.Windows.Forms.Label()
+        Me.LabelVersion = New System.Windows.Forms.Label()
+        Me.LabelCopyright = New System.Windows.Forms.Label()
+        Me.LabelCompanyName = New System.Windows.Forms.Label()
+        Me.OKButton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -59,49 +59,17 @@ Partial Class AboutBox1
         Me.TableLayoutPanel.Size = New System.Drawing.Size(457, 355)
         Me.TableLayoutPanel.TabIndex = 0
         '
-        'PictureBox1
+        'LabelProductName
         '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 143)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(444, 171)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'OKButton
-        '
-        Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OKButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.OKButton.Location = New System.Drawing.Point(379, 329)
-        Me.OKButton.Name = "OKButton"
-        Me.OKButton.Size = New System.Drawing.Size(75, 23)
-        Me.OKButton.TabIndex = 0
-        Me.OKButton.Text = "&OK"
-        '
-        'LabelCompanyName
-        '
-        Me.LabelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCompanyName.Location = New System.Drawing.Point(6, 105)
-        Me.LabelCompanyName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
-        Me.LabelCompanyName.MaximumSize = New System.Drawing.Size(0, 17)
-        Me.LabelCompanyName.Name = "LabelCompanyName"
-        Me.LabelCompanyName.Size = New System.Drawing.Size(448, 17)
-        Me.LabelCompanyName.TabIndex = 0
-        Me.LabelCompanyName.Text = "Company Name"
-        Me.LabelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'LabelCopyright
-        '
-        Me.LabelCopyright.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCopyright.Location = New System.Drawing.Point(6, 70)
-        Me.LabelCopyright.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
-        Me.LabelCopyright.MaximumSize = New System.Drawing.Size(0, 17)
-        Me.LabelCopyright.Name = "LabelCopyright"
-        Me.LabelCopyright.Size = New System.Drawing.Size(448, 17)
-        Me.LabelCopyright.TabIndex = 0
-        Me.LabelCopyright.Text = "Copyright"
-        Me.LabelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelProductName.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelProductName.Location = New System.Drawing.Point(6, 0)
+        Me.LabelProductName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
+        Me.LabelProductName.MaximumSize = New System.Drawing.Size(0, 17)
+        Me.LabelProductName.Name = "LabelProductName"
+        Me.LabelProductName.Size = New System.Drawing.Size(448, 17)
+        Me.LabelProductName.TabIndex = 0
+        Me.LabelProductName.Text = "Product Name"
+        Me.LabelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LabelVersion
         '
@@ -115,17 +83,49 @@ Partial Class AboutBox1
         Me.LabelVersion.Text = "Version"
         Me.LabelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LabelProductName
+        'LabelCopyright
         '
-        Me.LabelProductName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelProductName.Location = New System.Drawing.Point(6, 0)
-        Me.LabelProductName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
-        Me.LabelProductName.MaximumSize = New System.Drawing.Size(0, 17)
-        Me.LabelProductName.Name = "LabelProductName"
-        Me.LabelProductName.Size = New System.Drawing.Size(448, 17)
-        Me.LabelProductName.TabIndex = 0
-        Me.LabelProductName.Text = "Product Name"
-        Me.LabelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelCopyright.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelCopyright.Location = New System.Drawing.Point(6, 70)
+        Me.LabelCopyright.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
+        Me.LabelCopyright.MaximumSize = New System.Drawing.Size(0, 17)
+        Me.LabelCopyright.Name = "LabelCopyright"
+        Me.LabelCopyright.Size = New System.Drawing.Size(448, 17)
+        Me.LabelCopyright.TabIndex = 0
+        Me.LabelCopyright.Text = "Copyright"
+        Me.LabelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabelCompanyName
+        '
+        Me.LabelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelCompanyName.Location = New System.Drawing.Point(6, 105)
+        Me.LabelCompanyName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
+        Me.LabelCompanyName.MaximumSize = New System.Drawing.Size(0, 17)
+        Me.LabelCompanyName.Name = "LabelCompanyName"
+        Me.LabelCompanyName.Size = New System.Drawing.Size(448, 17)
+        Me.LabelCompanyName.TabIndex = 0
+        Me.LabelCompanyName.Text = "Company Name"
+        Me.LabelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'OKButton
+        '
+        Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OKButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.OKButton.Location = New System.Drawing.Point(379, 329)
+        Me.OKButton.Name = "OKButton"
+        Me.OKButton.Size = New System.Drawing.Size(75, 23)
+        Me.OKButton.TabIndex = 0
+        Me.OKButton.Text = "&OK"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 143)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(444, 171)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'AboutBox1
         '

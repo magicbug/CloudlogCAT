@@ -1,4 +1,11 @@
-﻿Public Class Form1
+﻿Imports System.Diagnostics.Contracts
+Imports System.Runtime
+Imports CloudlogCAT.My
+
+Public Class Form1
+    ' List of Cloudlog Targets
+    Dim targets As ArrayList
+    Dim targetsStr As String ' Strore the settings string to detect changes
     'OmniRig events WithEvents
     Dim WithEvents OmniRigEngine As OmniRig.OmniRigX
     Dim Rig As OmniRig.RigX
@@ -48,6 +55,16 @@
     Const ST_NOTRESPONDING = &H3
     Const ST_ONLINE = &H4
 
+    Public Sub loadSettings()
+        ' only do the deserialization if something has changed, a hint of better performance
+        If Not String.Equals(My.Settings.MultiCloudlog, Me.targetsStr) Then
+            ' do the deserialization
+            Me.targets = CloudlogTarget.fromSettingsString(My.Settings.MultiCloudlog)
+            Me.targetsStr = My.Settings.MultiCloudlog
+        End If
+    End Sub
+
+
     'Form LOAD events
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -59,6 +76,33 @@
         If (My.Settings.TransverterEnabled = True) Then
             TransverterOffsetToolStripMenuItem.Checked = True
         End If
+
+        ' Check weather we need to adjust the settings
+        If String.Equals(My.Settings.MultiCloudlog, "") Then
+            ' There are no Multi Cloudlog Entrys, create one
+
+            Dim target As New CloudlogTarget() ' Initializes the new object with defaults sting and sets it as not active
+
+            ' There are Settings strored in the URL and API, transport them (leagacy reasons!)
+            If Not String.Equals(My.Settings.CloudlogURL, "") Then
+                target.url = My.Settings.CloudlogURL
+                target.key = My.Settings.CloudlogAPIKey
+                target.active = True
+                Console.WriteLine(My.Settings.CloudlogURL)
+            End If
+
+            ' Store the targets as a list, and save it
+            Dim targets As New ArrayList()
+            targets.Add(target)
+            Me.targets = targets
+            My.Settings.MultiCloudlog = CloudlogTarget.toSettingsString(targets)
+            Me.targetsStr = My.Settings.MultiCloudlog ' set the string to compoare against changes
+            My.Settings.Save()
+        Else
+            Me.targetsStr = "" ' force a load of objects
+            loadSettings() ' deserialize the string
+        End If
+
 
         StartOmniRig()
     End Sub
@@ -106,7 +150,6 @@
             Label3.Text = Rig.Freq 'Rig.GetRxFrequency
         End If
 
->>>>>>> e221a03032e5c6a6f33ade8747dc3b7de93a3a4e
         Select Case Rig.Mode
             Case PM_CW_L
                 Label6.Text = "CW"
@@ -129,34 +172,64 @@
         End Select
 
         'Connect to Cloudlog API and sync frequency
-        If My.Settings.CloudlogURL IsNot Nothing Then
-            Try
-                Using client As New Net.WebClient
-                    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
+        loadSettings() ' surely there is a better way to update the settings... but it works!
 
-                    Dim RadioName As String = ""
 
-                    If RadioButton1.Checked Then
-                        RadioName = "OmniRig 1"
-                    Else
-                        RadioName = "OmniRig 2"
+        Dim allOK As Boolean
+        Dim anyTarget As Boolean
+        allOK = True ' If any of the targets fail, we need to know
+        anyTarget = False ' Additional flag, if any target is supposed to be active
+
+        Dim timestamp As String = DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss")
+
+
+        For Each target As CloudlogTarget In targets
+            ' upload each to target, if requested and possible
+            If target.active And Not String.Equals(target.url, "") Then
+                anyTarget = True
+                Try
+                    Using client As New Net.WebClient
+                        System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
+
+                        Dim RadioName As String = ""
+
+                        ' The radio name will be populated my the target object 
+                        If RadioButton1.Checked Then
+                            RadioName = "1"
+                        Else
+                            RadioName = "2"
+                        End If
+
+
+                        ' build string
+                        Dim myString As String = "{""radio"": """ + target.radioName + " " + RadioName + """, ""frequency"": """ + newfreq.ToString + """, ""mode"": """ + Label6.Text + """, ""timestamp"": """ + timestamp + """, ""key"": """ + target.key + """}"
+
+                        Try
+                            Dim responsebytes = client.UploadString(target.url + "/index.php/api/radio", myString)
+                        Catch ex As Exception
+                            If allOK = True Then ' only display error for the first entry, maybe room for improvement
+                                ToolStripStatusLabel1.Text = "Cloudlog Synced for " + target.name + ": Failed, check URL/API"
+                                allOK = False
+                            End If
+                        End Try
+                    End Using
+                Catch ex As System.Net.WebException
+                    If allOK = True Then
+                        ToolStripStatusLabel1.Text = "Cloudlog Synced for " + target.name + " Failed"
+                        allOK = False
                     End If
-                                
-                    Dim timestamp as String = DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss")
+                End Try
 
-                    Dim myString As String = "{""radio"": """ + RadioName + """, ""frequency"": """ + newfreq.ToString + """, ""mode"": """ + Label6.Text + """, ""timestamp"": """ + timestamp + """, ""key"": """ + My.Settings.CloudlogAPIKey + """}"
+            End If
+        Next
 
-                    Try
-                        Dim responsebytes = client.UploadString(My.Settings.CloudlogURL + "/index.php/api/radio", myString)
-                        ToolStripStatusLabel1.Text = "Cloudlog Synced: " + timestamp
-                    Catch ex As Exception
-                        ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed, check URL/API"
-                    End Try
-                End Using
-            Catch ex As System.Net.WebException
-                ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed"
-            End Try
+
+        If Not anyTarget Then ' haven't even tried, display an error
+            ToolStripStatusLabel1.Text = "Cloudlog Synced: Failed, no target active"
+        ElseIf allOK Then
+            ToolStripStatusLabel1.Text = "Cloudlog Synced: " + timestamp ' all targets uploaded sucessfully!
         End If
+
     End Sub
 
     'Procedures
